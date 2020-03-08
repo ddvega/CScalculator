@@ -1,0 +1,5 @@
+.idea/
+build/
+dist/
+env/
+tiny_calculator.egg-info/
