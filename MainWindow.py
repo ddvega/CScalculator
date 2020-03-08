@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -10,12 +10,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(342, 342)
-        MainWindow.setStyleSheet("background-color: rgb(0, 0, 0);")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_CScalculator(object):
+    def setupUi(self, CScalculator):
+        CScalculator.setObjectName("CScalculator")
+        CScalculator.resize(385, 517)
+        CScalculator.setStyleSheet("background-color: rgb(0, 0, 0);")
+        self.centralwidget = QtWidgets.QWidget(CScalculator)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         self.mainScreen.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.mainScreen.setLineWidth(1)
         self.mainScreen.setMidLineWidth(0)
-        self.mainScreen.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.mainScreen.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.mainScreen.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.mainScreen.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.mainScreen.setAutoScroll(False)
@@ -47,15 +47,6 @@ class Ui_MainWindow(object):
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.stackedWidget.setObjectName("stackedWidget")
-        self.basic = QtWidgets.QWidget()
-        self.basic.setObjectName("basic")
-        self.basEnterButt = QtWidgets.QPushButton(self.basic)
-        self.basEnterButt.setGeometry(QtCore.QRect(320, 0, 101, 31))
-        self.basEnterButt.setStyleSheet("background-color: rgb(0, 42, 12);\n"
-"color: rgb(179, 147, 112);\n"
-"font: 75 15pt \"Menlo\";")
-        self.basEnterButt.setObjectName("basEnterButt")
-        self.stackedWidget.addWidget(self.basic)
         self.scientific = QtWidgets.QWidget()
         self.scientific.setObjectName("scientific")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scientific)
@@ -160,7 +151,6 @@ class Ui_MainWindow(object):
         self.menu.addItem("")
         self.menu.addItem("")
         self.menu.addItem("")
-        self.menu.addItem("")
         self.gridLayout_2.addWidget(self.menu, 1, 0, 1, 2)
         self.entry = QtWidgets.QLineEdit(self.centralwidget)
         self.entry.setStyleSheet("color: rgb(0, 0, 0);\n"
@@ -176,70 +166,68 @@ class Ui_MainWindow(object):
         self.readMeButt = QtWidgets.QPushButton(self.widget)
         self.readMeButt.setStyleSheet("background-color: rgb(0, 42, 12);\n"
 "color: rgb(179, 147, 112);\n"
-"font: 75 12pt \"Menlo\";")
+"font: 75 9pt \"Menlo\";")
         self.readMeButt.setObjectName("readMeButt")
         self.gridLayout.addWidget(self.readMeButt, 0, 0, 1, 1)
         self.clearButt = QtWidgets.QPushButton(self.widget)
         self.clearButt.setStyleSheet("background-color: rgb(0, 42, 12);\n"
 "color: rgb(179, 147, 112);\n"
-"font: 75 12pt \"Menlo\";")
+"font: 75 9pt \"Menlo\";")
         self.clearButt.setObjectName("clearButt")
-        self.gridLayout.addWidget(self.clearButt, 0, 1, 1, 1)
-        self.pushButton_4 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_4.setStyleSheet("background-color: rgb(0, 42, 12);\n"
-"color: rgb(179, 147, 112);\n"
-"font: 75 12pt \"Menlo\";")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout.addWidget(self.pushButton_4, 0, 2, 1, 1)
+        self.gridLayout.addWidget(self.clearButt, 0, 2, 1, 1)
         self.pushButton_5 = QtWidgets.QPushButton(self.widget)
         self.pushButton_5.setStyleSheet("background-color: rgb(0, 42, 12);\n"
 "color: rgb(179, 147, 112);\n"
 "font: 75 12pt \"Menlo\";")
         self.pushButton_5.setObjectName("pushButton_5")
-        self.gridLayout.addWidget(self.pushButton_5, 0, 3, 1, 1)
+        self.gridLayout.addWidget(self.pushButton_5, 0, 4, 1, 1)
+        self.pushButton_4 = QtWidgets.QPushButton(self.widget)
+        self.pushButton_4.setStyleSheet("background-color: rgb(0, 42, 12);\n"
+"color: rgb(179, 147, 112);\n"
+"font: 75 9pt \"Menlo\";")
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.gridLayout.addWidget(self.pushButton_4, 0, 1, 1, 1)
         self.gridLayout_2.addWidget(self.widget, 3, 0, 1, 2)
-        MainWindow.setCentralWidget(self.centralwidget)
+        CScalculator.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(CScalculator)
+        self.stackedWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(CScalculator)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, CScalculator):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.basEnterButt.setText(_translate("MainWindow", "ENTER"))
-        self.factorialButt.setText(_translate("MainWindow", "X!"))
-        self.pushButton.setText(_translate("MainWindow", "test"))
-        self.pushButton_3.setText(_translate("MainWindow", "test"))
-        self.sqRtButt.setText(_translate("MainWindow", "sRoot"))
-        self.log10Butt.setText(_translate("MainWindow", "LOG10"))
-        self.log2Butt.setText(_translate("MainWindow", "LOG2"))
-        self.pushButton_6.setText(_translate("MainWindow", "test"))
-        self.pushButton_2.setText(_translate("MainWindow", "test"))
-        self.cboxbits.setItemText(0, _translate("MainWindow", "8bit"))
-        self.cboxbits.setItemText(1, _translate("MainWindow", "16bit"))
-        self.cboxbits.setItemText(2, _translate("MainWindow", "32bit"))
-        self.cBoxoddeven.setItemText(0, _translate("MainWindow", "odd"))
-        self.cBoxoddeven.setItemText(1, _translate("MainWindow", "even"))
-        self.hamEncode.setText(_translate("MainWindow", "ENCODE"))
-        self.menu.setItemText(0, _translate("MainWindow", "Basic Mode"))
-        self.menu.setItemText(1, _translate("MainWindow", "Scientific Mode"))
-        self.menu.setItemText(2, _translate("MainWindow", "Hamming Code Generator"))
-        self.menu.setItemText(3, _translate("MainWindow", "Hamming Code Reader"))
-        self.menu.setItemText(4, _translate("MainWindow", "Dec2Binary"))
-        self.menu.setItemText(5, _translate("MainWindow", "Binary2Dec"))
-        self.entry.setToolTip(_translate("MainWindow", "<html><head/><body><p>enter equation then hit RETURN</p></body></html>"))
-        self.readMeButt.setText(_translate("MainWindow", "info"))
-        self.clearButt.setText(_translate("MainWindow", "CLS"))
-        self.pushButton_4.setText(_translate("MainWindow", "test"))
-        self.pushButton_5.setText(_translate("MainWindow", "test"))
+        CScalculator.setWindowTitle(_translate("CScalculator", "CS-Calculator"))
+        self.factorialButt.setText(_translate("CScalculator", "X!"))
+        self.pushButton.setText(_translate("CScalculator", "test"))
+        self.pushButton_3.setText(_translate("CScalculator", "test"))
+        self.sqRtButt.setText(_translate("CScalculator", "sRoot"))
+        self.log10Butt.setText(_translate("CScalculator", "LOG10"))
+        self.log2Butt.setText(_translate("CScalculator", "LOG2"))
+        self.pushButton_6.setText(_translate("CScalculator", "test"))
+        self.pushButton_2.setText(_translate("CScalculator", "test"))
+        self.cboxbits.setItemText(0, _translate("CScalculator", "8bit"))
+        self.cboxbits.setItemText(1, _translate("CScalculator", "16bit"))
+        self.cboxbits.setItemText(2, _translate("CScalculator", "32bit"))
+        self.cBoxoddeven.setItemText(0, _translate("CScalculator", "odd"))
+        self.cBoxoddeven.setItemText(1, _translate("CScalculator", "even"))
+        self.hamEncode.setText(_translate("CScalculator", "ENCODE"))
+        self.menu.setItemText(0, _translate("CScalculator", "Scientific Mode"))
+        self.menu.setItemText(1, _translate("CScalculator", "Hamming Code Generator"))
+        self.menu.setItemText(2, _translate("CScalculator", "Hamming Code Reader"))
+        self.menu.setItemText(3, _translate("CScalculator", "Dec2Binary"))
+        self.menu.setItemText(4, _translate("CScalculator", "Binary2Dec"))
+        self.entry.setToolTip(_translate("CScalculator", "<html><head/><body><p>enter equation then hit RETURN</p></body></html>"))
+        self.readMeButt.setText(_translate("CScalculator", "ProgInfo"))
+        self.clearButt.setText(_translate("CScalculator", "clear"))
+        self.pushButton_5.setText(_translate("CScalculator", "ENTER"))
+        self.pushButton_4.setText(_translate("CScalculator", "LogClear"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    CScalculator = QtWidgets.QMainWindow()
+    ui = Ui_CScalculator()
+    ui.setupUi(CScalculator)
+    CScalculator.show()
     sys.exit(app.exec_())

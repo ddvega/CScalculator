@@ -5,18 +5,18 @@ import pyperclip
 import operator
 import texteditor
 
-from MainWindow import Ui_MainWindow
+from MainWindow import Ui_CScalculator
 
 # Calculator state.
 READY = 0
 INPUT = 1
 
 
-class MainWindow(QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_CScalculator):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
-        self.basEnterButt.pressed.connect(self.list_add_basic)
+        #self.basEnterButt.pressed.connect(self.list_add_basic)
         self.clearButt.pressed.connect(self.clearEntry)
         # self.hamEncode.pressed.connect(self.)
         # self.loadButt.pressed.connect(self.useLog)
@@ -52,7 +52,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def keyPressEvent(self, e):
         print("event", e)
         if e.key() == Qt.Key_Return:
-            if self.menu.currentText() == 'Basic Mode':
+            if self.menu.currentText() == 'Scientific Mode':
                 self.list_add_basic()
             elif self.menu.currentText() == 'Hamming Code Generator':
                 self.list_add_ham()
@@ -91,17 +91,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def menu_changed(self):
         value = self.menu.currentText()
 
-        if value == 'Basic Mode':
+        if value == 'Scientific Mode':
             self.stackedWidget.setCurrentIndex(0)
 
-        if value == 'Scientific Mode':
+        if value == 'Hamming Code Generator':
             self.stackedWidget.setCurrentIndex(1)
 
-        if value == 'Hamming Code Generator':
-            self.stackedWidget.setCurrentIndex(2)
-
         if value == 'Dec2Binary':
-            self.stackedWidget.setCurrentIndex(3)
+            self.stackedWidget.setCurrentIndex(2)
 
 
 if __name__ == '__main__':
