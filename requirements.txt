@@ -1,0 +1,4 @@
+pyperclip
+texteditor
+PyQt5
+sip
