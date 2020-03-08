@@ -1,0 +1,6 @@
+texteditor
+numpy
+PyQt5
+PySide2
+sip
+pyperclip

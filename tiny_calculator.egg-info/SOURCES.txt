@@ -1,0 +1,8 @@
+README.md
+setup.py
+tiny_calculator.egg-info/PKG-INFO
+tiny_calculator.egg-info/SOURCES.txt
+tiny_calculator.egg-info/dependency_links.txt
+tiny_calculator.egg-info/not-zip-safe
+tiny_calculator.egg-info/requires.txt
+tiny_calculator.egg-info/top_level.txt
