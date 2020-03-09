@@ -5,6 +5,8 @@ import texteditor
 
 from MainWindow import Ui_CScalculator
 from staticFunctions import *
+from math_class import Mathematics
+from staticFunctions import *
 
 # Calculator state.
 READY = 0
@@ -15,11 +17,14 @@ class MainWindow(QMainWindow, Ui_CScalculator):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
+        self.myMath = Mathematics()
         #self.basEnterButt.pressed.connect(self.list_add_basic)
-        self.clearButt.pressed.connect(self.clearEntry)
+        self.clearButt.pressed.connect(self.entry.clear)
         # self.hamEncode.pressed.connect(self.)
         # self.loadButt.pressed.connect(self.useLog)
         self.readMeButt.pressed.connect(self.read_me_open)
+        self.gcdButt.pressed.connect(self.mathGcd)
+        self.sRootButt.pressed.connect(self.mathSqRoot)
         self.stackedWidget.setCurrentIndex(0)
         self.menu.activated[str].connect(self.menu_changed)
         self.mainScreen.keyPressEvent = self.keyPressEvent
@@ -32,8 +37,6 @@ class MainWindow(QMainWindow, Ui_CScalculator):
 
         self.show()
 
-    def clearEntry(self):
-        self.entry.clear()
 
     def on_change(self):
         for item in self.mainScreen.selectedItems():
@@ -43,53 +46,69 @@ class MainWindow(QMainWindow, Ui_CScalculator):
 
 
 
-    # what happens when you push enter key
+
     def keyPressEvent(self, e):
         print("event", e)
         if e.key() == Qt.Key_Return:
             if self.menu.currentText() == 'Scientific Mode':
-                self.list_add_basic()
+                self.lstAddSci()
             elif self.menu.currentText() == 'Hamming Code Generator':
                 self.list_add_ham()
             else:
                 return
 
-    def useLog(self):
-        print("hello there")
-
-    # def display(self):
-    #     self.outputScreen.insertPlainText(self.equation)
-
-    # def onClick(self):
-    #     self.evalulate()
-
-    def list_add_basic(self):
-        #tval = self.evaluate()
-        self.evaluate()
-        # self.entry.setText("")
-        self.mainScreen.addItem(self.expression)
-        self.mainScreen.addItem(self.equation)
-        self.mainScreen.addItem("")
-        # self.expScreen.addItem(self.expression)
+    def reset(self):
         self.expression = ""
         self.equation = ""
         self.entry.clear()
 
-    def list_add_ham(self):
-        self.mainScreen.addItem(self.entry.displayText())
 
-    def evaluate(self):
+    def addToScreen(self):
+        self.mainScreen.addItem(self.expression)
+        self.mainScreen.addItem(self.equation)
+        self.mainScreen.addItem("")
+        self.mainScreen.scrollToBottom()
+
+
+
+    def mathGcd(self):
+        self.expression = self.entry.displayText()
+        try:
+            a = self.expression.split(',')[0]
+            b = self.expression.split(',')[1]
+            self.expression = "gcd between " + a + " & " + b
+            self.equation = self.myMath.greatestCDenom(a, b)
+            self.addToScreen()
+
+        except:
+            print("error")
+            self.reset()
+        
+
+
+    def mathSqRoot(self):
+        self.expression = fixZeros(self.entry.displayText())
+        self.equation = self.myMath.squareRoot(self.expression)
+        self.addToScreen()
+
+
+    def lstAddSci(self):
         try:
             self.expression = fixZeros(self.entry.displayText())
             # self.outputScreen.clear()
-
             self.equation = str(eval(self.expression))
+            self.addToScreen()
 
-            # self.display()
-            #return str(eval(self.entry.displayText()))
         except:
             print("error")
             self.entry.setText("")
+
+        self.reset()
+
+
+
+    def list_add_ham(self):
+        self.mainScreen.addItem(self.entry.displayText())
 
 
     def read_me_open(self):

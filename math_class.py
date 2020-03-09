@@ -5,7 +5,14 @@ class Mathematics:
     # converts string to float, performs calcuation then returns it as string
     def run(self, expression, function):
         try:
-            result = function(float(expression))
+            result = round(function(float(expression)), 3)
+        except:
+            result = "ERROR"
+        return str(result)
+
+    def run2(self, a, b, function):
+        try:
+            result = function(int(a), int(b))
         except:
             result = "ERROR"
         return str(result)
@@ -25,5 +32,8 @@ class Mathematics:
 
     def log2(self, expression):
         return self.run(expression, math.log2)
+
+    def greatestCDenom(self, a, b):
+        return self.run2(a, b, math.gcd)
 
 
