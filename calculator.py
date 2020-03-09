@@ -4,6 +4,7 @@ import pyperclip
 import texteditor
 
 from MainWindow import Ui_CScalculator
+from staticFunctions import *
 
 # Calculator state.
 READY = 0
@@ -24,10 +25,10 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.mainScreen.keyPressEvent = self.keyPressEvent
         self.mainScreen.itemSelectionChanged.connect(self.on_change)
         # self.expScreen.itemSelectionChanged.connect(self.expScrChanged)
-
         # holds value selected in mainScreen
         self.itemSelected = ""
         self.equation = ""
+        self.expression = ""
 
         self.show()
 
@@ -40,11 +41,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.entry.setText(self.itemSelected)
             print(self.itemSelected)
 
-    # def expScrChanged(self):
-    #     for item in self.expScreen.selectedItems():
-    #         self.itemSelected = item.text()
-    #         self.entry.setText(self.itemSelected)
-    #         print(self.itemSelected)
+
 
     # what happens when you push enter key
     def keyPressEvent(self, e):
@@ -63,25 +60,37 @@ class MainWindow(QMainWindow, Ui_CScalculator):
     # def display(self):
     #     self.outputScreen.insertPlainText(self.equation)
 
-    def onClick(self):
-        self.evalulate()
+    # def onClick(self):
+    #     self.evalulate()
 
     def list_add_basic(self):
-        tval = self.evalulate()
-        self.entry.setText("")
-        self.mainScreen.addItem(tval)
+        #tval = self.evaluate()
+        self.evaluate()
+        # self.entry.setText("")
+        self.mainScreen.addItem(self.expression)
+        self.mainScreen.addItem(self.equation)
+        self.mainScreen.addItem("")
         # self.expScreen.addItem(self.expression)
         self.expression = ""
+        self.equation = ""
+        self.entry.clear()
 
     def list_add_ham(self):
         self.mainScreen.addItem(self.entry.displayText())
 
-    def evalulate(self):
-        self.expression = self.entry.displayText()
-        # self.outputScreen.clear()
-        self.equation = str(eval(self.entry.displayText()))
-        # self.display()
-        return str(eval(self.entry.displayText()))
+    def evaluate(self):
+        try:
+            self.expression = fixZeros(self.entry.displayText())
+            # self.outputScreen.clear()
+
+            self.equation = str(eval(self.expression))
+
+            # self.display()
+            #return str(eval(self.entry.displayText()))
+        except:
+            print("error")
+            self.entry.setText("")
+
 
     def read_me_open(self):
         texteditor.open(filename="readme.txt")

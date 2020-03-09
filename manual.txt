@@ -1,0 +1,26 @@
+enter your equations in the blue box.
+
+to multiply:
+e.g. 3*3
+
+to get the power of an integer:
+e.g. 3**3
+
+to get the mod of a number:
+e.g. 10%2
+
+to divide a number:
+e.g. 3/3
+
+use parenthesis to enter full equations:
+e.g. ((3-1)**3)*5
+
+for hamming codes:
+enter an integer
+e.g. 45
+select the bit size and even/odd then hit enter
+
+<~Use:
+this button copies the equation result from log
+to your clipboard and then loads it in window
+
