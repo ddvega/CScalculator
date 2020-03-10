@@ -1,5 +1,5 @@
 import math
-import numpy as np
+from numpy import asarray
 
 
 # make space by adding empty bits to hamming code in the correct positions
@@ -108,7 +108,7 @@ def encode(ext, b, blist, oddEven):
                     m[i][j] = 0
 
     # loop through columns to get hamming code
-    npa = np.asarray(m)
+    npa = asarray(m)
     hammingCode = ""
 
     for column in npa.T:
@@ -161,4 +161,4 @@ def hamCodeRead(hcode):
         if i not in errorBits:
             s += hList[i]
 
-    return int(s, base=2)
+    return str(int(s, base=2))

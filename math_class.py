@@ -1,4 +1,4 @@
-import math
+from math import gcd, log2, log10, sqrt, factorial
 
 
 class Mathematics:
@@ -22,22 +22,21 @@ class Mathematics:
 
     def log10(self, expression):
         expression = str(eval(expression))
-        return self.run(expression, math.log10)
+        return self.run(expression, log10)
 
     def squareRoot(self, expression):
         expression = str(eval(expression))
-        return self.run(expression, math.sqrt)
+        return self.run(expression, sqrt)
 
     def factorial(self, expression):
-        #expression = str(int(float(expression)))  # convert to int
         expression = str(int(eval(expression)))
-        return self.run(expression, math.factorial)
+        return self.run(expression, factorial)
 
     def log2(self, expression):
         expression = str(eval(expression))
-        return self.run(expression, math.log2)
+        return self.run(expression, log2)
 
     def greatestCDenom(self, a, b):
-        return self.run2(a, b, math.gcd)
+        return self.run2(a, b, gcd)
 
 

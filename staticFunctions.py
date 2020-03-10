@@ -1,17 +1,22 @@
 import texteditor
 
-# write data to .txt file '''
-def write(data):
-    # create output file
-    out_file = open("calc_history.txt", "w")
 
-    # add elements in self.history to .txt file
-    for i in range(len(data)):
-        out_file.write(data[i] + '.\n')
-    out_file.close()
+def decToBinary(bsize, num):
+    binary = ''
 
+    sizes = ['8', '12', '16', '20', '24', '32']
 
-# calculator class
+    maxNum = [255, 4095, 65535, 1048575, 16777215, 4294967295]
+
+    for i in range(len(sizes)):
+        if bsize == sizes[i]:
+            if num <= maxNum[i]:
+                temp = '{:00' + sizes[i] + 'b}'
+                return str(temp.format(num))
+            else:
+                return "{} doesn't fit in {} bits".format(str(num), sizes[i])
+
+    return str(binary)
 def fixZeros(s):
     s = list(s)
     i = 0
@@ -32,3 +37,17 @@ def fixZeros(s):
 
 def show_read_me():
     texteditor.open(filename='manual.txt')
+
+
+# write data to .txt file '''
+def write(data):
+    # create output file
+    out_file = open("calc_history.txt", "w")
+
+    # add elements in self.history to .txt file
+    for i in range(len(data)):
+        out_file.write(data[i] + '.\n')
+    out_file.close()
+
+
+# calculator class

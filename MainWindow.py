@@ -193,6 +193,27 @@ class Ui_CScalculator(object):
         self.binaryCon = QtWidgets.QWidget()
         self.binaryCon.setObjectName("binaryCon")
         self.stackedWidget.addWidget(self.binaryCon)
+        self.page = QtWidgets.QWidget()
+        self.page.setObjectName("page")
+        self.cBoxBitConvert = QtWidgets.QComboBox(self.page)
+        self.cBoxBitConvert.setGeometry(QtCore.QRect(0, 90, 71, 26))
+        self.cBoxBitConvert.setStyleSheet("color: rgb(181,137, 0);\n"
+"font: 75 12pt \"Menlo\";\n"
+"background-color: rgb(7 ,54 ,66);")
+        self.cBoxBitConvert.setObjectName("cBoxBitConvert")
+        self.cBoxBitConvert.addItem("")
+        self.cBoxBitConvert.addItem("")
+        self.cBoxBitConvert.addItem("")
+        self.cBoxBitConvert.addItem("")
+        self.cBoxBitConvert.addItem("")
+        self.cBoxBitConvert.addItem("")
+        self.label_3 = QtWidgets.QLabel(self.page)
+        self.label_3.setGeometry(QtCore.QRect(10, 60, 60, 16))
+        self.label_3.setStyleSheet("color: rgb(181,137, 0);\n"
+"font: 75 12pt \"Menlo\";\n"
+"")
+        self.label_3.setObjectName("label_3")
+        self.stackedWidget.addWidget(self.page)
         self.gridLayout_2.addWidget(self.stackedWidget, 0, 2, 2, 1, QtCore.Qt.AlignLeft|QtCore.Qt.AlignBottom)
         spacerItem5 = QtWidgets.QSpacerItem(15, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem5, 1, 3, 1, 1)
@@ -218,13 +239,13 @@ class Ui_CScalculator(object):
 "background-color: rgb(7 ,54 ,66);")
         self.clearButt.setObjectName("clearButt")
         self.gridLayout.addWidget(self.clearButt, 0, 2, 1, 1)
-        self.pushButton_5 = QtWidgets.QPushButton(self.widget)
-        self.pushButton_5.setMinimumSize(QtCore.QSize(0, 25))
-        self.pushButton_5.setStyleSheet("color: rgb(181,137, 0);\n"
+        self.entButt = QtWidgets.QPushButton(self.widget)
+        self.entButt.setMinimumSize(QtCore.QSize(0, 25))
+        self.entButt.setStyleSheet("color: rgb(181,137, 0);\n"
 "font: 75 12pt \"Menlo\";\n"
 "background-color: rgb(7 ,54 ,66);")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.gridLayout.addWidget(self.pushButton_5, 0, 4, 1, 1)
+        self.entButt.setObjectName("entButt")
+        self.gridLayout.addWidget(self.entButt, 0, 4, 1, 1)
         self.logClearButt = QtWidgets.QPushButton(self.widget)
         self.logClearButt.setMinimumSize(QtCore.QSize(0, 25))
         self.logClearButt.setStyleSheet("color: rgb(181,137, 0);\n"
@@ -242,7 +263,7 @@ class Ui_CScalculator(object):
         CScalculator.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(CScalculator)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(CScalculator)
 
     def retranslateUi(self, CScalculator):
@@ -268,9 +289,16 @@ class Ui_CScalculator(object):
         self.label_2.setText(_translate("CScalculator", "TYPE"))
         self.cBoxoddeven.setItemText(0, _translate("CScalculator", "odd"))
         self.cBoxoddeven.setItemText(1, _translate("CScalculator", "even"))
+        self.cBoxBitConvert.setItemText(0, _translate("CScalculator", "8"))
+        self.cBoxBitConvert.setItemText(1, _translate("CScalculator", "12"))
+        self.cBoxBitConvert.setItemText(2, _translate("CScalculator", "16"))
+        self.cBoxBitConvert.setItemText(3, _translate("CScalculator", "20"))
+        self.cBoxBitConvert.setItemText(4, _translate("CScalculator", "24"))
+        self.cBoxBitConvert.setItemText(5, _translate("CScalculator", "32"))
+        self.label_3.setText(_translate("CScalculator", "Bit Size"))
         self.readMeButt.setText(_translate("CScalculator", "INFO"))
         self.clearButt.setText(_translate("CScalculator", "CLEAR"))
-        self.pushButton_5.setText(_translate("CScalculator", "ENTER"))
+        self.entButt.setText(_translate("CScalculator", "ENTER"))
         self.logClearButt.setText(_translate("CScalculator", "LOGCLR"))
 
 

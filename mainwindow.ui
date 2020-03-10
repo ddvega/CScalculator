@@ -175,7 +175,7 @@ background-color: rgb(0,0,0);
        <enum>QFrame::StyledPanel</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="scientific">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -481,6 +481,71 @@ background-color: rgb(7 ,54 ,66);</string>
        <zorder>horizontalSpacer_7</zorder>
       </widget>
       <widget class="QWidget" name="binaryCon"/>
+      <widget class="QWidget" name="page">
+       <widget class="QComboBox" name="cBoxBitConvert">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>71</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>12</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>16</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>20</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>24</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>32</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>60</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>Bit Size</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
     <item row="1" column="3">
@@ -553,7 +618,7 @@ background-color: rgb(7 ,54 ,66);</string>
         </widget>
        </item>
        <item row="0" column="4">
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="entButt">
          <property name="minimumSize">
           <size>
            <width>0</width>
