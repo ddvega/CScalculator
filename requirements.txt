@@ -1,3 +1,4 @@
 pyperclip
 texteditor
+numpy
 PyQt5==5.14

@@ -21,16 +21,20 @@ class Mathematics:
         return str(eval(expression))
 
     def log10(self, expression):
+        expression = str(eval(expression))
         return self.run(expression, math.log10)
 
     def squareRoot(self, expression):
+        expression = str(eval(expression))
         return self.run(expression, math.sqrt)
 
     def factorial(self, expression):
-        expression = str(int(float(expression)))  # convert to int
+        #expression = str(int(float(expression)))  # convert to int
+        expression = str(int(eval(expression)))
         return self.run(expression, math.factorial)
 
     def log2(self, expression):
+        expression = str(eval(expression))
         return self.run(expression, math.log2)
 
     def greatestCDenom(self, a, b):

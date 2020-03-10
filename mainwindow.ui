@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>409</width>
-    <height>420</height>
+    <width>403</width>
+    <height>365</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>0</width>
-    <height>420</height>
+    <height>365</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -25,8 +25,95 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="1" column="0" colspan="2">
+    <item row="4" column="1" colspan="2">
+     <widget class="QLineEdit" name="entry">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;enter equation then hit RETURN&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(180, 152, 124);
+font: 75 18pt &quot;Menlo&quot;;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QListWidget" name="mainScreen">
+      <property name="minimumSize">
+       <size>
+        <width>175</width>
+        <height>205</height>
+       </size>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(181,137, 0);
+background-color: rgb(49, 49, 49);
+font: 75 13pt &quot;Menlo&quot;;
+selection-color: rgb(22, 22, 22);
+selection-background-color: rgb(139, 56, 24);
+
+
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+      </property>
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="textElideMode">
+       <enum>Qt::ElideMiddle</enum>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ListMode</enum>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="2">
      <widget class="QComboBox" name="menu">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>15</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Menlo</family>
@@ -72,12 +159,12 @@ background-color: rgb(0,0,0);
       </item>
      </widget>
     </item>
-    <item row="0" column="1" alignment="Qt::AlignLeft|Qt::AlignBottom">
+    <item row="0" column="2" rowspan="2" alignment="Qt::AlignLeft|Qt::AlignBottom">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>75</height>
+        <height>230</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -92,74 +179,14 @@ background-color: rgb(0,0,0);
       </property>
       <widget class="QWidget" name="scientific">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>test</string>
-          </property>
-         </widget>
-        </item>
-        <item row="11" column="0">
-         <widget class="QPushButton" name="log2Butt">
-          <property name="sizeIncrement">
+        <item row="5" column="0">
+         <widget class="QPushButton" name="gcdButt">
+          <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>0</height>
+            <height>25</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>LOG2</string>
-          </property>
-         </widget>
-        </item>
-        <item row="10" column="0">
-         <widget class="QPushButton" name="log10Butt">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>LOG10</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>test</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>test</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="0">
-         <widget class="QPushButton" name="gcdButt">
           <property name="sizeIncrement">
            <size>
             <width>0</width>
@@ -176,20 +203,14 @@ background-color: rgb(7 ,54 ,66);</string>
           </property>
          </widget>
         </item>
-        <item row="8" column="0">
-         <widget class="QPushButton" name="factorialButt">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-          </property>
-          <property name="text">
-           <string>X!</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="0">
+        <item row="7" column="0">
          <widget class="QPushButton" name="sRootButt">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(181,137, 0);
 font: 75 12pt &quot;Menlo&quot;;
@@ -200,10 +221,148 @@ background-color: rgb(7 ,54 ,66);</string>
           </property>
          </widget>
         </item>
+        <item row="9" column="0">
+         <widget class="QPushButton" name="log2Butt">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+          </property>
+          <property name="text">
+           <string>LOG2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QPushButton" name="factorialButt">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+          </property>
+          <property name="text">
+           <string>X!</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+          </property>
+          <property name="text">
+           <string>test</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QPushButton" name="log10Butt">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+          </property>
+          <property name="text">
+           <string>LOG10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>5</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pushButton_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+          </property>
+          <property name="text">
+           <string>test</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="ham">
        <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="label">
           <property name="styleSheet">
@@ -222,7 +381,7 @@ font: 75 13pt &quot;Menlo&quot;;
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>50</height>
+            <height>40</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -247,6 +406,19 @@ background-color: rgb(7 ,54 ,66);</string>
           </item>
          </widget>
         </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item alignment="Qt::AlignHCenter">
          <widget class="QLabel" name="label_2">
           <property name="styleSheet">
@@ -265,7 +437,7 @@ font: 75 13pt &quot;Menlo&quot;;
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>50</height>
+            <height>40</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -285,85 +457,59 @@ background-color: rgb(7 ,54 ,66);</string>
           </item>
          </widget>
         </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
        <zorder>label</zorder>
        <zorder>cboxbits</zorder>
        <zorder>cBoxoddeven</zorder>
        <zorder>label_2</zorder>
+       <zorder>horizontalSpacer</zorder>
+       <zorder>horizontalSpacer_6</zorder>
+       <zorder>verticalSpacer_3</zorder>
+       <zorder>horizontalSpacer_7</zorder>
       </widget>
       <widget class="QWidget" name="binaryCon"/>
      </widget>
     </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLineEdit" name="entry">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;enter equation then hit RETURN&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <item row="1" column="3">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(180, 152, 124);
-font: 75 18pt &quot;Menlo&quot;;
-</string>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>15</width>
+        <height>40</height>
+       </size>
       </property>
-     </widget>
+     </spacer>
     </item>
-    <item row="0" column="0">
-     <widget class="QListWidget" name="mainScreen">
-      <property name="mouseTracking">
-       <bool>true</bool>
+    <item row="1" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="focusPolicy">
-       <enum>Qt::TabFocus</enum>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
       </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(181,137, 0);
-background-color: rgb(49, 49, 49);
-font: 75 11pt &quot;Menlo&quot;;
-selection-color: rgb(22, 22, 22);
-selection-background-color: rgb(139, 56, 24);
-
-
-</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
-      </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <property name="midLineWidth">
-       <number>0</number>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAsNeeded</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="sizeAdjustPolicy">
-       <enum>QAbstractScrollArea::AdjustIgnored</enum>
-      </property>
-      <property name="autoScroll">
-       <bool>false</bool>
-      </property>
-      <property name="textElideMode">
-       <enum>Qt::ElideMiddle</enum>
-      </property>
-      <property name="resizeMode">
-       <enum>QListView::Adjust</enum>
-      </property>
-      <property name="viewMode">
-       <enum>QListView::ListMode</enum>
-      </property>
-      <property name="selectionRectVisible">
-       <bool>false</bool>
-      </property>
-     </widget>
+     </spacer>
     </item>
-    <item row="3" column="0" colspan="2">
+    <item row="5" column="1" colspan="2">
      <widget class="QWidget" name="widget" native="true">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0,0,0);
@@ -372,9 +518,15 @@ selection-background-color: rgb(139, 56, 24);
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QPushButton" name="readMeButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(181,137, 0);
-font: 75 9pt &quot;Menlo&quot;;
+font: 75 12pt &quot;Menlo&quot;;
 background-color: rgb(7 ,54 ,66);</string>
          </property>
          <property name="text">
@@ -384,9 +536,15 @@ background-color: rgb(7 ,54 ,66);</string>
        </item>
        <item row="0" column="2">
         <widget class="QPushButton" name="clearButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(181,137, 0);
-font: 75 9pt &quot;Menlo&quot;;
+font: 75 12pt &quot;Menlo&quot;;
 background-color: rgb(7 ,54 ,66);</string>
          </property>
          <property name="text">
@@ -396,9 +554,15 @@ background-color: rgb(7 ,54 ,66);</string>
        </item>
        <item row="0" column="4">
         <widget class="QPushButton" name="pushButton_5">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(181,137, 0);
-font: 75 9pt &quot;Menlo&quot;;
+font: 75 12pt &quot;Menlo&quot;;
 background-color: rgb(7 ,54 ,66);</string>
          </property>
          <property name="text">
@@ -407,10 +571,16 @@ background-color: rgb(7 ,54 ,66);</string>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QPushButton" name="pushButton_4">
+        <widget class="QPushButton" name="logClearButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(181,137, 0);
-font: 75 9pt &quot;Menlo&quot;;
+font: 75 12pt &quot;Menlo&quot;;
 background-color: rgb(7 ,54 ,66);</string>
          </property>
          <property name="text">
@@ -420,6 +590,45 @@ background-color: rgb(7 ,54 ,66);</string>
        </item>
       </layout>
      </widget>
+    </item>
+    <item row="6" column="1" colspan="2">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="horizontalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>2</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
