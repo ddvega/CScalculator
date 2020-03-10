@@ -1,22 +1,40 @@
 import texteditor
+from numpy import binary_repr
 
 
-def decToBinary(bsize, num):
-    binary = ''
+def decToBinary(num, size):
+    return str(binary_repr(int(num), width=int(size)))
 
-    sizes = ['8', '12', '16', '20', '24', '32']
 
-    maxNum = [255, 4095, 65535, 1048575, 16777215, 4294967295]
+def floatToBinary(num, places):
+    #places = 6
+    places = int(places)
+    whole, dec = num.split(".")
+    whole = int(whole)
+    dec = int(dec)
 
-    for i in range(len(sizes)):
-        if bsize == sizes[i]:
-            if num <= maxNum[i]:
-                temp = '{:00' + sizes[i] + 'b}'
-                return str(temp.format(num))
-            else:
-                return "{} doesn't fit in {} bits".format(str(num), sizes[i])
 
-    return str(binary)
+    #res = bin(whole).lstrip("0b") + "."
+    res = str(binary_repr(whole, width=places)) + '.'
+
+    for x in range(places):
+        whole, dec = str((decimal_converter(dec)) * 2).split(".")
+        dec = int(dec)
+        res += whole
+
+    return str(res)
+
+
+def decimal_converter(num):
+    while num > 1:
+        num /= 10
+    return num
+
+
+def binaryToDec(snum):
+    return str(int(snum, 2))
+
+
 def fixZeros(s):
     s = list(s)
     i = 0
@@ -49,5 +67,3 @@ def write(data):
         out_file.write(data[i] + '.\n')
     out_file.close()
 
-
-# calculator class

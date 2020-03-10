@@ -18,7 +18,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.expression = ""
         self.hammingBits = 8
         self.hammingOe = "odd"
-        self.bConvertBits = '8'
+        self.bitWidth = '8'
 
         # button functions
         self.clearButt.pressed.connect(self.entry.clear)
@@ -30,6 +30,12 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.log10Butt.pressed.connect(self.mathLog10)
         self.logClearButt.pressed.connect(self.screenClear)
         self.entButt.pressed.connect(self.enterButtPressed)
+        #self.binDecButt.pressed.connect(self.bin_bin2Dec)
+        #self.decBinButt.pressed.connect(self.bin_Dec2Bin)
+        #self.floatBinButt.pressed.connect(self.bin_float2Bin)
+
+        # radio buttons
+
 
         # dropdown menus
         self.stackedWidget.setCurrentIndex(0)
@@ -41,14 +47,40 @@ class MainWindow(QMainWindow, Ui_CScalculator):
 
         self.show()
 
-    def dec2Binary(self):
-        self.expression = self.entry.displayText()
-        self.bConvertBits = self.cBoxBitConvert.currentText()
 
+
+    def bin_bin2Dec(self):
+        self.expression = self.entry.displayText()
         try:
-            self.equation = decToBinary(self.bConvertBits, int(self.expression))
-            self.expression = self.expression + "->" + self.bConvertBits + \
-                              "bit-binary"
+            self.equation = binaryToDec(self.expression)
+            self.expression = self.expression + "->dec"
+            self.screenAdd()
+
+        except Exception:
+            self.resetParams()
+
+
+    def bin_Dec2Bin(self):
+        self.expression = self.entry.displayText()
+        self.bitWidth = self.entryBitWidth.displayText()
+        print(self.expression)
+        print(self.bitWidth)
+        try:
+
+            self.equation = decToBinary(self.expression, self.bitWidth)
+            self.expression = self.expression + "->binary"
+            self.screenAdd()
+
+        except Exception:
+            self.resetParams()
+
+    def bin_float2Bin(self):
+        self.expression = self.entry.displayText()
+        floatWidth = self.entryFloatWidth.displayText()
+        print(floatWidth)
+        try:
+            self.equation = floatToBinary(self.expression, floatWidth)
+            self.expression = self.expression + "->binary"
             self.screenAdd()
 
         except Exception:
@@ -61,8 +93,14 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.hamGenerate()
         elif self.menu.currentText() == 'Hamming Code Reader':
             self.hamReader()
-        elif self.menu.currentText() == 'Dec2Binary':
-            self.dec2Binary()
+        elif self.menu.currentText()== 'Binary Converter':
+            if self.radioBinInt.isChecked():
+                self.bin_bin2Dec()
+            elif self.radioIntBin.isChecked():
+                self.bin_Dec2Bin()
+            elif self.radioFloatBin.isChecked():
+                self.bin_float2Bin()
+
         else:
             return
 
@@ -168,7 +206,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         if value == 'Hamming Code Reader':
             self.stackedWidget.setCurrentIndex(2)
 
-        if value == 'Dec2Binary':
+        if value == 'Binary Converter':
             self.stackedWidget.setCurrentIndex(3)
 
     def resetParams(self):
