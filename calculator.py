@@ -51,20 +51,12 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.show()
 
 
-    def ddBinChange(self):
-        self.binFunctionType = self.ddBinConvert.currentText()
-
-    def ddTypeChange(self):
-        self.binSorU = self.ddSignedUnsigned.currentText()
-
-
-
     def bin_bin2Dec(self):
         self.expression = self.entry.displayText()
         try:
             self.equation = binaryToDec(self.expression, self.binSorU)
-            self.expression = self.expression + "->dec"
-            self.logScreenAdd()
+
+            self.logScreenAdd("binary_to_decimal")
 
         except Exception:
             self.resetParams()
@@ -79,7 +71,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
 
             self.equation = decToBinary(self.expression, self.bitWidth)
             self.expression = self.expression + "->binary"
-            self.logScreenAdd()
+            self.logScreenAdd("dec_to_binary")
 
         except Exception:
             self.resetParams()
@@ -90,119 +82,21 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         print(floatWidth)
         try:
             self.equation = floatToBinary(self.expression, floatWidth)
-            self.expression = self.expression + "->binary"
-            self.logScreenAdd()
+            self.expression = self.expression
+            self.logScreenAdd("float_to_bin")
 
         except Exception:
             self.resetParams()
 
-    def enterAction(self):
-        if self.menu.currentText() == 'Scientific Mode':
-            self.screenAddScientific()
-        elif self.menu.currentText() == 'Hamming Code Generator':
-            self.hamGenerate()
-        elif self.menu.currentText() == 'Hamming Code Reader':
-            self.hamReader()
-        elif self.menu.currentText()== 'Binary Converter':
-            if self.binFunctionType == 'bin2dec':
-                self.bin_bin2Dec()
-            elif self.binFunctionType == 'dec2bin':
-                self.bin_Dec2Bin()
-            elif self.binFunctionType == 'float2bin':
-                self.bin_float2Bin()
-
-        else:
-            return
-
-    def enterButtPressed(self):
-        self.enterAction()
+    def ddBinChange(self):
+        self.binFunctionType = self.ddBinConvert.currentText()
 
     def ddhamBits(self):
         self.hammingBits = int(self.ddbits.currentText())
 
-    def hamGenerate(self):
-        self.expression = self.entry.displayText()
-
-        try:
-            num = int(self.expression)
-            self.equation = hamCodeGenerator(self.hammingBits, num,
-                                             self.hammingOe)
-            self.expression = "ham_" + str(self.hammingBits) + "_" + \
-                              self.hammingOe + "(" + self.expression + ")"
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
     def ddhamOddEven(self):
         self.hammingOe = self.ddoddeven.currentText()
 
-
-    def hamReader(self):
-        self.expression = self.entry.displayText()
-        try:
-            self.equation = hamCodeRead(self.expression)
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
-    def keyPressEvent(self, e):
-        print("event", e)
-        if e.key() == Qt.Key_Return:
-            self.enterAction()
-
-    def mathFactorial(self):
-        try:
-            self.expression = fixZeros(self.entry.displayText())
-            self.equation = self.myMath.factorial(self.expression)
-            self.expression = self.expression + " factorial"
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
-    def mathGcd(self):
-        self.expression = self.entry.displayText()
-        try:
-            a = self.expression.split(',')[0]
-            b = self.expression.split(',')[1]
-            self.expression = "gcd between " + a + " & " + b
-            self.equation = self.myMath.greatestCDenom(a, b)
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
-    def mathLog10(self):
-        try:
-            self.expression = fixZeros(self.entry.displayText())
-            self.equation = self.myMath.log10(self.expression)
-            self.expression = "log_10(" + self.expression + ")"
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
-    def mathLog2(self):
-        try:
-            self.expression = fixZeros(self.entry.displayText())
-            self.equation = self.myMath.log2(self.expression)
-            self.expression = "log_2(" + self.expression + ")"
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
-
-    def mathSqRoot(self):
-        try:
-            self.expression = fixZeros(self.entry.displayText())
-            self.equation = self.myMath.squareRoot(self.expression)
-            self.expression = "Square Root(" + self.expression + ")"
-            self.logScreenAdd()
-
-        except Exception:
-            self.resetParams()
 
     def ddmenuChange(self):
         value = self.menu.currentText()
@@ -219,17 +113,122 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         if value == 'Binary Converter':
             self.stackedWidget.setCurrentIndex(3)
 
-    def resetParams(self):
-        self.expression = ""
-        self.equation = ""
-        self.entry.clear()
+    def ddTypeChange(self):
+        self.binSorU = self.ddSignedUnsigned.currentText()
 
-    def logScreenAdd(self):
+
+
+    def enterAction(self):
+        if self.menu.currentText() == 'Scientific Mode':
+            self.screenAddScientific()
+        elif self.menu.currentText() == 'Hamming Code Generator':
+            self.hamGenerate()
+        elif self.menu.currentText() == 'Hamming Code Reader':
+            self.hamReader()
+        elif self.menu.currentText()== 'Binary Converter':
+            if self.binFunctionType == 'bin2dec':
+                self.bin_bin2Dec()
+            elif self.binFunctionType == 'dec2bin':
+                self.bin_Dec2Bin()
+            elif self.binFunctionType == 'flt2bin':
+                self.bin_float2Bin()
+
+        else:
+            return
+
+    def enterButtPressed(self):
+        self.enterAction()
+
+    def hamGenerate(self):
+        self.expression = self.entry.displayText()
+
+        try:
+            num = int(self.expression)
+            self.equation = hamCodeGenerator(self.hammingBits, num,
+                                             self.hammingOe)
+            self.expression = str(self.hammingBits) + self.hammingOe + \
+                              self.expression
+            self.logScreenAdd("int_to_hamming")
+
+        except Exception:
+            self.resetParams()
+
+    def hamReader(self):
+        self.expression = self.entry.displayText()
+        try:
+            self.equation = hamCodeRead(self.expression)
+            self.logScreenAdd("hamming_to_int")
+
+        except Exception:
+            self.resetParams()
+
+    def keyPressEvent(self, e):
+        print("event", e)
+        if e.key() == Qt.Key_Return:
+            self.enterAction()
+
+    def logScreenAdd(self, funct):
+        self.logScreen.addItem(funct)
         self.logScreen.addItem(self.expression)
         self.logScreen.addItem(self.equation)
         self.logScreen.addItem("")
         self.logScreen.scrollToBottom()
         self.resetParams()
+
+    def mathFactorial(self):
+        try:
+            self.expression = fixZeros(self.entry.displayText())
+            self.equation = self.myMath.factorial(self.expression)
+            self.expression = self.expression + " factorial"
+            self.logScreenAdd("factorial")
+
+        except Exception:
+            self.resetParams()
+
+    def mathGcd(self):
+        self.expression = self.entry.displayText()
+        try:
+            a = self.expression.split(',')[0]
+            b = self.expression.split(',')[1]
+            self.expression = a + "," + b
+            self.equation = self.myMath.greatestCDenom(a, b)
+            self.logScreenAdd("greatest_common_den")
+
+        except Exception:
+            self.resetParams()
+
+    def mathLog10(self):
+        try:
+
+            self.expression = fixZeros(self.entry.displayText())
+            self.equation = self.myMath.log10(self.expression)
+            self.logScreenAdd("log_10")
+
+        except Exception:
+            self.resetParams()
+
+    def mathLog2(self):
+        try:
+            self.expression = fixZeros(self.entry.displayText())
+            self.equation = self.myMath.log2(self.expression)
+            self.logScreenAdd("log_2")
+
+        except Exception:
+            self.resetParams()
+
+    def mathSqRoot(self):
+        try:
+            self.expression = fixZeros(self.entry.displayText())
+            self.equation = self.myMath.squareRoot(self.expression)
+            self.logScreenAdd("square_root")
+
+        except Exception:
+            self.resetParams()
+
+    def resetParams(self):
+        self.expression = ""
+        self.equation = ""
+        self.entry.clear()
 
     def screenAddHam(self):
         self.logScreen.addItem(self.entry.displayText())
@@ -238,7 +237,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         try:
             self.expression = fixZeros(self.entry.displayText())
             self.equation = str(eval(self.expression))
-            self.logScreenAdd()
+            self.logScreenAdd('equation_eval')
 
         except Exception:
             self.resetParams()
