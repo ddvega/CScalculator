@@ -7,14 +7,10 @@ def decToBinary(num, size):
 
 
 def floatToBinary(num, places):
-    #places = 6
     places = int(places)
     whole, dec = num.split(".")
     whole = int(whole)
     dec = int(dec)
-
-
-    #res = bin(whole).lstrip("0b") + "."
     res = str(binary_repr(whole, width=places)) + '.'
 
     for x in range(places):
@@ -31,8 +27,14 @@ def decimal_converter(num):
     return num
 
 
-def binaryToDec(snum):
-    return str(int(snum, 2))
+def binaryToDec(snum, type):
+    if type == 'signed':
+        x = int(snum, 2)
+        if snum[0] == '1':  # "sign bit", big-endian
+            x -= 2 ** len(snum)
+        return str(x)
+    else:
+        return str(int(snum, 2))
 
 
 def fixZeros(s):
@@ -67,3 +69,9 @@ def write(data):
         out_file.write(data[i] + '.\n')
     out_file.close()
 
+
+def to_int(bin):
+    x = int(bin, 2)
+    if bin[0] == '1':  # "sign bit", big-endian
+        x -= 2 ** len(bin)
+    return x

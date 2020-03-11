@@ -13,12 +13,14 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.myMath = Mathematics()
 
         # variables
-        self.itemSelected = ""
-        self.equation = ""
-        self.expression = ""
-        self.hammingBits = 8
-        self.hammingOe = "odd"
-        self.bitWidth = '8'
+        self.itemSelected = ""  # holds value of item selected from log
+        self.equation = "" # holds value of solved equation
+        self.expression = ""  # holds value of user entry
+        self.hammingBits = 8  # number of bits for hamming code
+        self.hammingOe = "odd"  # even or odd hamming code
+        self.bitWidth = '8'  # bit size for binary conversion
+        self.binFunctionType = 'dec2bin'  # binary convert function
+        self.binSorU = 'unsigned'  # signed or unsiged number
 
         # button functions
         self.clearButt.pressed.connect(self.entry.clear)
@@ -30,31 +32,39 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.log10Butt.pressed.connect(self.mathLog10)
         self.logClearButt.pressed.connect(self.screenClear)
         self.entButt.pressed.connect(self.enterButtPressed)
-        #self.binDecButt.pressed.connect(self.bin_bin2Dec)
-        #self.decBinButt.pressed.connect(self.bin_Dec2Bin)
-        #self.floatBinButt.pressed.connect(self.bin_float2Bin)
-
-        # radio buttons
 
 
-        # dropdown menus
+        # set options widget to first position
         self.stackedWidget.setCurrentIndex(0)
-        self.menu.activated[str].connect(self.menuChange)
-        self.cboxbits.activated[str].connect(self.hamBitsDd)
-        self.cBoxoddeven.activated[str].connect(self.hamOddEven)
-        self.mainScreen.keyPressEvent = self.keyPressEvent
-        self.mainScreen.itemSelectionChanged.connect(self.screenSelect)
+
+        # dropdown menus # dd = dropdown
+        self.menu.activated[str].connect(self.ddmenuChange)
+        self.ddbits.activated[str].connect(self.ddhamBits)
+        self.ddoddeven.activated[str].connect(self.ddhamOddEven)
+        self.ddBinConvert.activated[str].connect(self.ddBinChange)
+        self.ddSignedUnsigned.activated[str].connect(self.ddTypeChange)
+
+        self.logScreen.keyPressEvent = self.keyPressEvent
+        self.logScreen.itemSelectionChanged.connect(self.screenSelect)
+
 
         self.show()
+
+
+    def ddBinChange(self):
+        self.binFunctionType = self.ddBinConvert.currentText()
+
+    def ddTypeChange(self):
+        self.binSorU = self.ddSignedUnsigned.currentText()
 
 
 
     def bin_bin2Dec(self):
         self.expression = self.entry.displayText()
         try:
-            self.equation = binaryToDec(self.expression)
+            self.equation = binaryToDec(self.expression, self.binSorU)
             self.expression = self.expression + "->dec"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -69,7 +79,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
 
             self.equation = decToBinary(self.expression, self.bitWidth)
             self.expression = self.expression + "->binary"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -81,7 +91,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         try:
             self.equation = floatToBinary(self.expression, floatWidth)
             self.expression = self.expression + "->binary"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -94,11 +104,11 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         elif self.menu.currentText() == 'Hamming Code Reader':
             self.hamReader()
         elif self.menu.currentText()== 'Binary Converter':
-            if self.radioBinInt.isChecked():
+            if self.binFunctionType == 'bin2dec':
                 self.bin_bin2Dec()
-            elif self.radioIntBin.isChecked():
+            elif self.binFunctionType == 'dec2bin':
                 self.bin_Dec2Bin()
-            elif self.radioFloatBin.isChecked():
+            elif self.binFunctionType == 'float2bin':
                 self.bin_float2Bin()
 
         else:
@@ -107,8 +117,8 @@ class MainWindow(QMainWindow, Ui_CScalculator):
     def enterButtPressed(self):
         self.enterAction()
 
-    def hamBitsDd(self):
-        self.hammingBits = int(self.cboxbits.currentText())
+    def ddhamBits(self):
+        self.hammingBits = int(self.ddbits.currentText())
 
     def hamGenerate(self):
         self.expression = self.entry.displayText()
@@ -119,20 +129,20 @@ class MainWindow(QMainWindow, Ui_CScalculator):
                                              self.hammingOe)
             self.expression = "ham_" + str(self.hammingBits) + "_" + \
                               self.hammingOe + "(" + self.expression + ")"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
 
-    def hamOddEven(self):
-        self.hammingOe = self.cBoxoddeven.currentText()
+    def ddhamOddEven(self):
+        self.hammingOe = self.ddoddeven.currentText()
 
 
     def hamReader(self):
         self.expression = self.entry.displayText()
         try:
             self.equation = hamCodeRead(self.expression)
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -147,7 +157,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.expression = fixZeros(self.entry.displayText())
             self.equation = self.myMath.factorial(self.expression)
             self.expression = self.expression + " factorial"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -159,7 +169,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             b = self.expression.split(',')[1]
             self.expression = "gcd between " + a + " & " + b
             self.equation = self.myMath.greatestCDenom(a, b)
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -169,7 +179,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.expression = fixZeros(self.entry.displayText())
             self.equation = self.myMath.log10(self.expression)
             self.expression = "log_10(" + self.expression + ")"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -179,7 +189,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.expression = fixZeros(self.entry.displayText())
             self.equation = self.myMath.log2(self.expression)
             self.expression = "log_2(" + self.expression + ")"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
@@ -189,12 +199,12 @@ class MainWindow(QMainWindow, Ui_CScalculator):
             self.expression = fixZeros(self.entry.displayText())
             self.equation = self.myMath.squareRoot(self.expression)
             self.expression = "Square Root(" + self.expression + ")"
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
 
-    def menuChange(self):
+    def ddmenuChange(self):
         value = self.menu.currentText()
 
         if value == 'Scientific Mode':
@@ -214,30 +224,30 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.equation = ""
         self.entry.clear()
 
-    def screenAdd(self):
-        self.mainScreen.addItem(self.expression)
-        self.mainScreen.addItem(self.equation)
-        self.mainScreen.addItem("")
-        self.mainScreen.scrollToBottom()
+    def logScreenAdd(self):
+        self.logScreen.addItem(self.expression)
+        self.logScreen.addItem(self.equation)
+        self.logScreen.addItem("")
+        self.logScreen.scrollToBottom()
         self.resetParams()
 
     def screenAddHam(self):
-        self.mainScreen.addItem(self.entry.displayText())
+        self.logScreen.addItem(self.entry.displayText())
 
     def screenAddScientific(self):
         try:
             self.expression = fixZeros(self.entry.displayText())
             self.equation = str(eval(self.expression))
-            self.screenAdd()
+            self.logScreenAdd()
 
         except Exception:
             self.resetParams()
 
     def screenClear(self):
-        self.mainScreen.clear()
+        self.logScreen.clear()
 
     def screenSelect(self):
-        for item in self.mainScreen.selectedItems():
+        for item in self.logScreen.selectedItems():
             self.itemSelected = item.text()
             self.entry.setText(self.itemSelected)
 
