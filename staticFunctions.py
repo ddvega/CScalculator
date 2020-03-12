@@ -58,15 +58,17 @@ def fixZeros(s):
 def show_read_me():
     texteditor.open(filename='manual.txt')
 
+def showLog():
+    texteditor.open(filename='calcHistory.txt')
 
 # write data to .txt file '''
 def write(data):
     # create output file
-    out_file = open("calc_history.txt", "w")
+    out_file = open("calcHistory.txt", "w")
 
     # add elements in self.history to .txt file
     for i in range(len(data)):
-        out_file.write(data[i] + '.\n')
+        out_file.write(data[i] + '\n')
     out_file.close()
 
 

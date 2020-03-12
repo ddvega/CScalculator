@@ -32,6 +32,7 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         self.log10Butt.pressed.connect(self.mathLog10)
         self.logClearButt.pressed.connect(self.screenClear)
         self.entButt.pressed.connect(self.enterButtPressed)
+        self.log2txtButt.pressed.connect(self.logToTxt)
 
 
         # set options widget to first position
@@ -166,6 +167,16 @@ class MainWindow(QMainWindow, Ui_CScalculator):
         print("event", e)
         if e.key() == Qt.Key_Return:
             self.enterAction()
+
+    def logToTxt(self):
+        out_file = open("calcHistory.txt", "w")
+
+        for index in range(self.logScreen.count()):
+            out_file.write(self.logScreen.item(index).text() + '\n')
+
+        out_file.close()
+
+        showLog()
 
     def logScreenAdd(self, funct):
         self.logScreen.addItem(funct)

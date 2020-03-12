@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>470</width>
-    <height>441</height>
+    <height>420</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -25,6 +25,112 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <item row="7" column="1" colspan="2">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0,0,0);
+</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="readMeButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>INFO</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="log2txtButt">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>LOG2TXT</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QPushButton" name="entButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>ENTER</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="logClearButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>LOGCLR</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QPushButton" name="clearButt">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>CLEAR</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(181,137, 0);
+font: 75 12pt &quot;Menlo&quot;;
+background-color: rgb(7 ,54 ,66);</string>
+         </property>
+         <property name="text">
+          <string>test</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item row="4" column="1">
      <spacer name="horizontalSpacer_5">
       <property name="orientation">
@@ -115,9 +221,11 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;enter equation then hit RETURN&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(180, 152, 124);
+       <string notr="true">color: rgb(181,137, 0);
+background-color: rgb(49, 49, 49);
 font: 75 18pt &quot;Menlo&quot;;
+selection-color: rgb(22, 22, 22);
+selection-background-color: rgb(139, 56, 24);
 </string>
       </property>
      </widget>
@@ -139,7 +247,7 @@ font: 75 18pt &quot;Menlo&quot;;
       <property name="styleSheet">
        <string notr="true">color: rgb(181,137, 0);
 background-color: rgb(49, 49, 49);
-font: 75 13pt &quot;Menlo&quot;;
+font: 75 15pt &quot;Menlo&quot;;
 selection-color: rgb(22, 22, 22);
 selection-background-color: rgb(139, 56, 24);
 
@@ -184,6 +292,59 @@ selection-background-color: rgb(139, 56, 24);
       </property>
      </widget>
     </item>
+    <item row="5" column="1" alignment="Qt::AlignTop">
+     <widget class="QComboBox" name="menu">
+      <property name="minimumSize">
+       <size>
+        <width>220</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>167777</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Menlo</family>
+        <pointsize>15</pointsize>
+        <weight>9</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(181,137, 0);
+font: 75 15pt &quot;Menlo&quot;;
+</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Scientific Mode</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Hamming Code Generator</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Hamming Code Reader</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Binary Converter</string>
+       </property>
+      </item>
+     </widget>
+    </item>
     <item row="2" column="2" alignment="Qt::AlignHCenter|Qt::AlignBottom">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="minimumSize">
@@ -193,8 +354,7 @@ selection-background-color: rgb(139, 56, 24);
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">
-</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -508,7 +668,7 @@ background-color: rgb(7 ,54 ,66);</string>
       <widget class="QWidget" name="binaryCon"/>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item alignment="Qt::AlignHCenter">
+        <item>
          <widget class="QLabel" name="label_6">
           <property name="styleSheet">
            <string notr="true">color: rgb(181,137, 0);
@@ -519,7 +679,7 @@ font: 75 9pt &quot;Menlo&quot;;</string>
           </property>
          </widget>
         </item>
-        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+        <item>
          <widget class="QComboBox" name="ddBinConvert">
           <property name="minimumSize">
            <size>
@@ -560,7 +720,7 @@ font: 75 9pt &quot;Menlo&quot;;</string>
           </property>
          </widget>
         </item>
-        <item alignment="Qt::AlignVCenter">
+        <item>
          <widget class="QComboBox" name="ddSignedUnsigned">
           <property name="minimumSize">
            <size>
@@ -585,7 +745,7 @@ background-color: rgb(7 ,54 ,66);</string>
           </item>
          </widget>
         </item>
-        <item alignment="Qt::AlignHCenter">
+        <item>
          <widget class="QLabel" name="label_3">
           <property name="styleSheet">
            <string notr="true">color: rgb(181,137, 0);
@@ -612,12 +772,21 @@ font: 75 9pt &quot;Menlo&quot;;
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(180, 152, 124);
-font: 75 10pt &quot;Menlo&quot;;</string>
+           <string notr="true">color: rgb(181,137, 0);
+background-color: rgb(49, 49, 49);
+font: 15pt &quot;Menlo&quot;;
+selection-color: rgb(22, 22, 22);
+selection-background-color: rgb(139, 56, 24);
+</string>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhDigitsOnly</set>
           </property>
           <property name="text">
            <string>8</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -648,152 +817,25 @@ background-color: rgb(0,0,0);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(180, 152, 124);
-font: 75 10pt &quot;Menlo&quot;;</string>
+           <string notr="true">color: rgb(181,137, 0);
+background-color: rgb(49, 49, 49);
+font: 15pt &quot;Menlo&quot;;
+selection-color: rgb(22, 22, 22);
+selection-background-color: rgb(139, 56, 24);</string>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhDigitsOnly</set>
           </property>
           <property name="text">
            <string>4</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
        </layout>
       </widget>
-     </widget>
-    </item>
-    <item row="7" column="1" colspan="2">
-     <widget class="QWidget" name="widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(0,0,0);
-</string>
-      </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QPushButton" name="readMeButt">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-         </property>
-         <property name="text">
-          <string>INFO</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QPushButton" name="clearButt">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-         </property>
-         <property name="text">
-          <string>CLEAR</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QPushButton" name="entButt">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-         </property>
-         <property name="text">
-          <string>ENTER</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QPushButton" name="logClearButt">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(181,137, 0);
-font: 75 12pt &quot;Menlo&quot;;
-background-color: rgb(7 ,54 ,66);</string>
-         </property>
-         <property name="text">
-          <string>LOGCLR</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="5" column="1" alignment="Qt::AlignTop">
-     <widget class="QComboBox" name="menu">
-      <property name="minimumSize">
-       <size>
-        <width>220</width>
-        <height>25</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>167777</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Menlo</family>
-        <pointsize>15</pointsize>
-        <weight>9</weight>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(181,137, 0);
-font: 75 15pt &quot;Menlo&quot;;
-</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>Scientific Mode</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Hamming Code Generator</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Hamming Code Reader</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Binary Converter</string>
-       </property>
-      </item>
      </widget>
     </item>
    </layout>
