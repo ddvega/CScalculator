@@ -36,3 +36,10 @@
  
  ### images
  
+ ![scientific_mode](https://github.com/ddvega/CScalculator/blob/master/imgSci.png)
+ 
+ ![hamgen](https://github.com/ddvega/CScalculator/blob/master/imgHamGen.png)
+
+ ![hamread](https://github.com/ddvega/CScalculator/blob/master/imgHamRead.png)
+
+ ![binary](https://github.com/ddvega/CScalculator/blob/master/imgBinary.png)
