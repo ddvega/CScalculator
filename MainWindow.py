@@ -260,7 +260,7 @@ class Ui_CScalculator(object):
         self.label_6.setStyleSheet("color: rgb(181,137, 0);\n"
 "font: 75 9pt \"Menlo\";")
         self.label_6.setObjectName("label_6")
-        self.verticalLayout_2.addWidget(self.label_6)
+        self.verticalLayout_2.addWidget(self.label_6, 0, QtCore.Qt.AlignHCenter)
         self.ddBinConvert = QtWidgets.QComboBox(self.page)
         self.ddBinConvert.setMinimumSize(QtCore.QSize(100, 22))
         self.ddBinConvert.setStyleSheet("color: rgb(181,137, 0);\n"
@@ -290,7 +290,7 @@ class Ui_CScalculator(object):
 "font: 75 9pt \"Menlo\";\n"
 "")
         self.label_3.setObjectName("label_3")
-        self.verticalLayout_2.addWidget(self.label_3)
+        self.verticalLayout_2.addWidget(self.label_3, 0, QtCore.Qt.AlignHCenter)
         self.entryBitWidth = QtWidgets.QLineEdit(self.page)
         self.entryBitWidth.setMinimumSize(QtCore.QSize(0, 25))
         self.entryBitWidth.setMaximumSize(QtCore.QSize(40, 16777215))
